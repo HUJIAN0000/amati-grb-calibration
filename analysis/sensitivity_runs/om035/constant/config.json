@@ -1,0 +1,55 @@
+{
+  "model": {
+    "evolution": "constant",
+    "log_base": 10,
+    "absolute_anchors_in_likelihood": false,
+    "zero_points": "A_SN and A_HII are constant",
+    "sensitivity_case": "om035",
+    "use_hii_links": true
+  },
+  "sampling": {
+    "walkers": 56,
+    "steps": 9000,
+    "burn": 2000,
+    "chunk": 1500,
+    "max_steps": 30000,
+    "auto_extend": true,
+    "seed": 2026111540
+  },
+  "parameter_names": [
+    "A_SN",
+    "b",
+    "A_HII",
+    "beta_HII",
+    "sigma_GRB",
+    "sigma_HII"
+  ],
+  "bounds": [
+    [
+      25.0,
+      60.0
+    ],
+    [
+      -3.0,
+      5.0
+    ],
+    [
+      -10.0,
+      40.0
+    ],
+    [
+      0.1,
+      10.0
+    ],
+    [
+      1e-05,
+      5.0
+    ],
+    [
+      1e-05,
+      5.0
+    ]
+  ],
+  "input_manifest_sha256": "ad28a1a035c2750f3659d805c0ae0632aebb83567fb155d24bf918716541b513",
+  "archived_input_manifest_sha256": "aa648e57d37ef3b85d35267f132267275318abe2e17541251e94285838656597"
+}

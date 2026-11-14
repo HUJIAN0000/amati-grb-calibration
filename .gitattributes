@@ -1,0 +1,8 @@
+* text=auto eol=lf
+*.npz binary
+*.npy binary
+*.h5 binary
+/analysis/inputs/reference/*_index.csv -text
+/analysis/sensitivity_inputs/*/*_index.csv -text
+/analysis/inputs/reference/manifest.json -text
+/analysis/sensitivity_inputs/*/manifest.json -text

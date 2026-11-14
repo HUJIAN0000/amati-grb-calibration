@@ -1,0 +1,13 @@
+{
+  "algorithm": "milp",
+  "version": "1.4.3",
+  "criterion": "dd",
+  "tolerance": 0.05,
+  "omega_m": 0.35,
+  "hii_direction": "hii_target",
+  "indexes": {
+    "sn_index.csv": "b453e22ebcd8c19c0731a2ae8e52dc612512c768d25436775fa88df272348a85",
+    "hii_index.csv": "991b7c60553bffb87d6340792e23c962712eff1371d4624c0380813d059dd427"
+  },
+  "archived_manifest_sha256": "aa648e57d37ef3b85d35267f132267275318abe2e17541251e94285838656597"
+}

@@ -1,0 +1,22 @@
+{
+  "reference/constant": {
+    "dense_log_likelihood_error": 6.821210263296962e-13,
+    "lnL_max": -158.47828768283034,
+    "min_steps_over_tau": 171.13913705345342
+  },
+  "reference/linear": {
+    "dense_log_likelihood_error": 6.821210263296962e-13,
+    "lnL_max": -156.32373323467166,
+    "min_steps_over_tau": 140.84987874896734
+  },
+  "reference/log": {
+    "dense_log_likelihood_error": 9.379164112033322e-13,
+    "lnL_max": -156.94497345264858,
+    "min_steps_over_tau": 139.39379148264828
+  },
+  "reference/linear_repeat": {
+    "dense_log_likelihood_error": 6.821210263296962e-13,
+    "lnL_max": -156.32373323467166,
+    "min_steps_over_tau": 179.87190658499426
+  }
+}

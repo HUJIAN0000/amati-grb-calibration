@@ -1,0 +1,99 @@
+{
+  "parameters": {
+    "a_GRB": {
+      "median": 50.20598832793855,
+      "minus": 0.2322414442726881,
+      "plus": 0.2326357982543712,
+      "ci68": [
+        49.97374688366586,
+        50.43862412619292
+      ],
+      "ci95": [
+        49.74324110447614,
+        50.67138745100842
+      ]
+    },
+    "b": {
+      "median": 1.1291510768646689,
+      "minus": 0.08415445865259641,
+      "plus": 0.08334200255096391,
+      "ci68": [
+        1.0449966182120725,
+        1.2124930794156328
+      ],
+      "ci95": [
+        0.9611522525445887,
+        1.2953626927266402
+      ]
+    },
+    "sigma_GRB": {
+      "median": 1.0267702664719625,
+      "minus": 0.06857797419003919,
+      "plus": 0.07676593006867627,
+      "ci68": [
+        0.9581922922819233,
+        1.1035361965406387
+      ],
+      "ci95": [
+        0.8983338956220183,
+        1.1860388848852226
+      ]
+    }
+  },
+  "tau_postburn": {
+    "a_GRB": 36.55271664904106,
+    "b": 36.53410317470349,
+    "sigma_GRB": 36.0081356126555
+  },
+  "postburn_steps_div_tau": {
+    "a_GRB": 177.82536007950927,
+    "b": 177.91595893068626,
+    "sigma_GRB": 180.5147611617941
+  },
+  "effective_sample_size": {
+    "a_GRB": 17071.23456763289,
+    "b": 17079.93205734588,
+    "sigma_GRB": 17329.417071532233
+  },
+  "convergence_50tau": true,
+  "acceptance_fraction_mean": 0.6461614583333333,
+  "acceptance_fraction_range": [
+    0.633375,
+    0.664875
+  ],
+  "steps": 8000,
+  "burn": 1500,
+  "walkers": 96,
+  "n_samples": 624000,
+  "prior_boundary_fraction": {
+    "a_GRB": {
+      "lower_1pct": 0.0,
+      "upper_1pct": 0.0
+    },
+    "b": {
+      "lower_1pct": 0.0,
+      "upper_1pct": 0.0
+    },
+    "sigma_GRB": {
+      "lower_1pct": 0.0,
+      "upper_1pct": 0.0
+    }
+  },
+  "tau_stability_checked": true,
+  "tau_stable_5pct": true,
+  "lnL_map": -173.17621072051537,
+  "sampling_seconds_this_invocation": 16.504461600001378,
+  "status": "passed_50tau",
+  "environment": {
+    "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "packages": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "pandas": "3.1.1",
+      "emcee": "3.1.6",
+      "matplotlib": "3.11.2",
+      "h5py": "3.16.0"
+    }
+  }
+}
