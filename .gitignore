@@ -18,3 +18,9 @@ __pycache__/
 /generated/
 /upstream/
 /work/
+
+# Transformed catalog inputs are distributed with the reproducibility archive.
+/analysis/inputs/reference/anchors.csv
+/analysis/inputs/reference/anchor_hosts.csv
+/analysis/sensitivity_inputs/*/anchors.csv
+/analysis/sensitivity_inputs/*/anchor_hosts.csv

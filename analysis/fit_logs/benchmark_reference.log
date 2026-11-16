@@ -1,0 +1,10 @@
+MAP reference: lnL=-125.753413 {'a_GRB': np.float64(50.16839), 'b': np.float64(1.14505), 'sigma_GRB': np.float64(1.0651)}
+reference: 1000/6000 steps, 2.0s
+reference: 2000/6000 steps, 4.0s
+reference: 3000/6000 steps, 6.0s
+reference: 4000/6000 steps, 7.9s
+reference: 5000/6000 steps, 10.0s
+reference: 6000/6000 steps, 12.0s
+reference: 7000/8000 steps, 14.1s
+reference: 8000/8000 steps, 16.1s
+reference: passed_50tau

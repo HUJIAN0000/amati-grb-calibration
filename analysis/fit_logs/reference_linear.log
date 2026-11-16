@@ -1,0 +1,9 @@
+MAP linear: lnL=-156.323733 {'A_SN': np.float64(42.14399), 'b0': np.float64(1.30388), 'A_HII': np.float64(11.17489), 'beta_HII': np.float64(1.72654), 'sigma_GRB': np.float64(1.156), 'sigma_HII': np.float64(0.46933), 'b1': np.float64(-0.07032)}
+linear: 2000/12000 steps, 6.1s
+linear: 4000/12000 steps, 12.1s
+linear: 6000/12000 steps, 18.0s
+linear: 8000/12000 steps, 24.0s
+linear: 10000/12000 steps, 30.0s
+linear: 12000/12000 steps, 36.1s
+linear: 14000/14000 steps, 42.3s
+linear: passed_50tau

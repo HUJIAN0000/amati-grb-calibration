@@ -4,6 +4,7 @@
     "log_base": 10,
     "absolute_anchors_in_likelihood": false,
     "zero_points": "A_SN and A_HII are constant",
+    "evolution_log_base": "e",
     "sensitivity_case": "om025",
     "use_hii_links": true
   },
@@ -55,6 +56,5 @@
       2.0
     ]
   ],
-  "input_manifest_sha256": "d6fbd99e17d664f183d899f16bbb009dc7ead01acc29d85ff02af64c8ec31f1c",
-  "archived_input_manifest_sha256": "552668f63f25805c774b457172ec56f849778b5dbb2fe515046f5c27c9a9a4c8"
+  "input_manifest_sha256": "552668f63f25805c774b457172ec56f849778b5dbb2fe515046f5c27c9a9a4c8"
 }

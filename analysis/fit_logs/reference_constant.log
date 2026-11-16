@@ -1,0 +1,9 @@
+MAP constant: lnL=-158.478288 {'A_SN': np.float64(42.3177), 'b': np.float64(1.12722), 'A_HII': np.float64(11.72439), 'beta_HII': np.float64(1.97173), 'sigma_GRB': np.float64(1.17897), 'sigma_HII': np.float64(0.47451)}
+constant: 2000/12000 steps, 6.1s
+constant: 4000/12000 steps, 12.2s
+constant: 6000/12000 steps, 18.2s
+constant: 8000/12000 steps, 24.3s
+constant: 10000/12000 steps, 30.3s
+constant: 12000/12000 steps, 36.4s
+constant: 14000/14000 steps, 42.6s
+constant: passed_50tau

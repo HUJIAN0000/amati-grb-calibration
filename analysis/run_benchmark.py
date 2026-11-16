@@ -1,6 +1,5 @@
 """Constant Amati slope benchmarks with the A118 equation (9) convention."""
 import argparse
-from pathlib import Path
 import os
 for key in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS"):
     os.environ[key] = "1"
@@ -66,10 +65,9 @@ class FixedBackground:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("sample", choices=SUBSETS)
-    parser.add_argument("--output", type=Path, default=ROOT.parent / "work" / "benchmarks")
     args = parser.parse_args()
     model = FixedBackground(args.sample)
-    run(model, args.output / args.sample,
+    run(model, ROOT / "benchmarks" / args.sample,
         dict(walkers=96, steps=6000, burn=1500, max_steps=20000, chunk=1000,
              auto_extend=True, seed=2026111400 + 60 + SUBSETS.index(args.sample)))
 

@@ -1,0 +1,10 @@
+MAP a118: lnL=-173.176211 {'a_GRB': np.float64(50.20419), 'b': np.float64(1.12985), 'sigma_GRB': np.float64(1.00962)}
+a118: 1000/6000 steps, 2.0s
+a118: 2000/6000 steps, 4.0s
+a118: 3000/6000 steps, 6.1s
+a118: 4000/6000 steps, 8.1s
+a118: 5000/6000 steps, 10.1s
+a118: 6000/6000 steps, 12.1s
+a118: 7000/8000 steps, 14.3s
+a118: 8000/8000 steps, 16.4s
+a118: passed_50tau

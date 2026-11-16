@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-LATEX = ROOT.parent / "generated"
+LATEX = ROOT.parent / "latex"
 # Published marginal results. Source tables and distance conventions are in README.md.
 PUBLISHED = (
     ("Cosmological background fitted", (
@@ -46,7 +46,6 @@ def write_table(filename, content):
 
 
 def main():
-    LATEX.mkdir(exist_ok=True)
     comparison = [r"\begin{tabular}{@{}llrc@{}}", r"\toprule",
                   r"Study & Distance calibration / GRB selection & \(N\) & \(b\) \\",
                   r"\midrule"]

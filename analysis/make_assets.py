@@ -13,7 +13,7 @@ import cosmo_tools as ct
 from amati_pipeline.model import MODES
 
 ROOT = Path(__file__).resolve().parent
-PAPER = ROOT.parent / "generated"
+PAPER = ROOT.parent / "latex"
 FIG = PAPER / "figures"
 SAMPLE = "reference"
 MODELS = MODES
@@ -81,9 +81,9 @@ def evolution_plot(grbs):
     fig, axs = plt.subplots(1, 2, figsize=(7.9, 2.8), layout="constrained", sharex=True, sharey=True)
     z = np.linspace(grbs.z.min(), grbs.z.max(), 130)
     baseline = np.median(draws(SAMPLE, "constant")["b"])
-    for ax, model, title in zip(axs, ("linear", "log"), (r"$b_0+b_1z$", r"$b_0+b_1\log_{10}(1+z)$")):
+    for ax, model, title in zip(axs, ("linear", "log"), (r"$b_0+b_1z$", r"$b_0+b_1\ln(1+z)$")):
         chain = draws(SAMPLE, model)
-        basis = z if model == "linear" else np.log10(1 + z)
+        basis = z if model == "linear" else np.log1p(z)
         slope = chain["b0"][:, None] + chain["b1"][:, None] * basis
         lo, med, hi = np.quantile(slope, [.16, .5, .84], axis=0)
         ax.fill_between(z, lo, hi, color=COLOR, alpha=.22, lw=0)
@@ -158,7 +158,7 @@ def table_and_checks():
     report[SAMPLE] = metrics
     (PAPER / f"full_{SAMPLE}.tex").write_text("\n".join(fitted_table(SAMPLE)) + "\n",
                                               encoding="ascii")
-    (PAPER / "submission_metrics.json").write_text(json.dumps(report, indent=2) + "\n",
+    (ROOT / "submission_metrics.json").write_text(json.dumps(report, indent=2) + "\n",
                                                   encoding="ascii")
     lines = [r"\begin{tabular}{@{}lccccc@{}}", r"\toprule",
              r"Model & \(b\) & \(b_0\) & \(b_1\) & \(b_1\) (95\%) & \(\Delta{\rm AIC}\)\\",
@@ -172,7 +172,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--tables-only", action="store_true")
     args = parser.parse_args()
-    PAPER.mkdir(exist_ok=True)
     table_and_checks()
     if not args.tables_only:
         FIG.mkdir(parents=True, exist_ok=True)

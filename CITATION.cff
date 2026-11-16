@@ -1,6 +1,8 @@
 cff-version: 1.2.0
 message: "Please cite the accompanying study and the data and software sources described in DATA.md."
-title: "Cosmology-independent constraints on the Amati slope and its redshift evolution from matched Pantheon+ supernovae and H II galaxies"
+title: "Constraints on the Amati slope and its redshift evolution with a cosmology-independent matched-pair likelihood"
+version: 1.0.0
+repository-code: https://github.com/HUJIAN0000/amati-grb-calibration
 type: software
 license: MIT
 authors:

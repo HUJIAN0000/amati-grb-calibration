@@ -88,11 +88,9 @@ if __name__ == "__main__":
     parser.add_argument("--full-chains", action="store_true")
     args = parser.parse_args()
     report = reduce_posteriors(args.full_chains)
-    out = ROOT.parent / "generated"
-    out.mkdir(exist_ok=True)
-    json_write(out / "sensitivity_validation.json",
+    json_write(ROOT / "sensitivity_validation.json",
                {"full_chain_quantiles_checked": args.full_chains, "checks": report})
-    (ROOT.parent / "generated/sensitivity_table.tex").write_text(latex(report), encoding="utf-8")
+    (ROOT.parent / "latex/sensitivity_table.tex").write_text(latex(report), encoding="utf-8")
     for key, entry in report.items():
         print(key, entry["counts"], entry["common_links_with_baseline"], entry["z_range"])
         for mode, fit in entry["fits"].items():

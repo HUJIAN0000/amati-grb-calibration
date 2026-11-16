@@ -1,0 +1,31 @@
+WARN `--no-project` was provided, but no project was found
+MAP constant: lnL=-49.780194 {'A_SN': np.float64(42.31249), 'b': np.float64(1.15019), 'sigma_GRB': np.float64(1.05303)}
+constant: 1500/9000 steps, 4.0s
+constant: 3000/9000 steps, 8.0s
+constant: 4500/9000 steps, 11.9s
+constant: 6000/9000 steps, 15.8s
+constant: 7500/9000 steps, 19.7s
+constant: 9000/9000 steps, 23.6s
+constant: 10500/11000 steps, 27.6s
+constant: 11000/11000 steps, 28.9s
+constant: passed_50tau
+MAP linear: lnL=-49.686134 {'A_SN': np.float64(42.38275), 'b0': np.float64(1.08917), 'sigma_GRB': np.float64(1.04944), 'b1': np.float64(0.02874)}
+linear: 1500/9000 steps, 4.0s
+linear: 3000/9000 steps, 8.1s
+linear: 4500/9000 steps, 12.2s
+linear: 6000/9000 steps, 16.3s
+linear: 7500/9000 steps, 20.3s
+linear: 9000/9000 steps, 24.4s
+linear: 10500/11000 steps, 28.6s
+linear: 11000/11000 steps, 30.0s
+linear: passed_50tau
+MAP log: lnL=-49.651235 {'A_SN': np.float64(42.39814), 'b0': np.float64(1.06221), 'sigma_GRB': np.float64(1.04812), 'b1': np.float64(0.16762)}
+log: 1500/9000 steps, 4.1s
+log: 3000/9000 steps, 8.1s
+log: 4500/9000 steps, 12.2s
+log: 6000/9000 steps, 16.2s
+log: 7500/9000 steps, 20.3s
+log: 9000/9000 steps, 24.4s
+log: 10500/11000 steps, 28.6s
+log: 11000/11000 steps, 29.9s
+log: passed_50tau

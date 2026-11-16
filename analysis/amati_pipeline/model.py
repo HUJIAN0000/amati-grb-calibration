@@ -19,6 +19,8 @@ class RelativeCalibration:
             "absolute_anchors_in_likelihood": False,
             "zero_points": "A_SN and A_HII are constant",
         }
+        if evolution == "log":
+            self.config["evolution_log_base"] = "e"
         self.ns, self.nh = len(data.sn), len(data.hii)
         edges = np.r_[data.sn.grb_id, data.hii.grb_id]
         grb = data.grb.set_index("grb_id").loc[edges]
@@ -28,7 +30,7 @@ class RelativeCalibration:
         self.ss = (grb.fluence_err / grb.fluence).to_numpy() / LN10
         fluence = np.log10(grb.fluence.to_numpy())
         self.grb_base = np.log10(1 + self.z) - fluence
-        self.evolution_term = np.log1p(self.z) / LN10 if evolution == "log" else self.z
+        self.evolution_term = np.log1p(self.z) if evolution == "log" else self.z
         h_index = {gid: j for j, gid in enumerate(data.hii.grb_id)}
         shared = [(i, h_index[gid]) for i, gid in enumerate(data.sn.grb_id) if gid in h_index]
         self.shared_s, self.shared_h = np.asarray(shared, dtype=int).reshape(-1, 2).T

@@ -1,6 +1,6 @@
 # Data and software provenance
 
-The preparation script verifies each pinned file by SHA-256 and verifies the normalized A118 CSV against its frozen checksum. The pair indexes carry separate checksums.
+The v1.0.0 reproducibility archive contains the matched inputs and manifests used for the manuscript. Each input manifest records hashes for the frozen inputs. The repository retains the ordered pairing indexes and source references.
 
 | Input | Source and processing |
 | --- | --- |
@@ -16,7 +16,7 @@ The preparation script verifies each pinned file by SHA-256 and verifies the nor
 - The generated grb.csv has GRB peak energies and fluences with their errors. The generated sn.csv has calibrator_z and m_b_corr. The generated hii.csv has calibrator_z, log_sigma, log_flux, err_log_sigma and err_log_flux. H II width and flux logs are base ten, relative to km s⁻¹ and erg s⁻¹ cm⁻².
 - The generated sn_cov.npy contains the Pantheon+ submatrix in squared magnitudes, ordered as in sn.csv. The primary matrix is 33 × 33 and the 3% check is 28 × 28.
 - The primary MILP uses fractional comoving-distance tolerance 0.05 with fiducial flat Ωm = 0.30. The GRB is the target for SN Ia pairing and the H II galaxy is the target for H II pairing. The likelihood carries the covariance from GRBs shared between the two families.
-- Portable manifests retain the archived manifest digest. Run configurations point to the portable manifest and retain the archived digest. The fit settings and posterior samples carry over from the original runs.
+- Fit configurations record the SHA-256 of their input manifest. Use the matching Release archive for the files consumed by the verification scripts.
 
 ## Rights
 

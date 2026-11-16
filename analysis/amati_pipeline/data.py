@@ -32,6 +32,7 @@ class Dataset:
     grb:pd.DataFrame
     sn:pd.DataFrame
     hii:pd.DataFrame
+    anchors:pd.DataFrame
     sn_cov:np.ndarray
     source:Path
 
@@ -44,9 +45,10 @@ class Dataset:
             if frozen.get('algorithm')=='milp' and 'files' in frozen:
                 expected_hashes={**frozen['files'],**expected_hashes}
             for name,expected in expected_hashes.items():
+                if name=='anchor_hosts_template.csv':continue
                 if sha256(p/name)!=expected:raise ValueError(f'Frozen dataset hash mismatch: {p/name}')
         data=cls(*(pd.read_csv(p/f'{name}.csv',dtype={'grb_id':str,'anchor_id':str,'calibrator_id':str})
-                   for name in ['grb','sn','hii']),np.load(p/'sn_cov.npy'),p)
+                   for name in ['grb','sn','hii','anchors']),np.load(p/'sn_cov.npy'),p)
         data.validate()
         return data
 
@@ -63,11 +65,14 @@ class Dataset:
         # in older surveys. Every quantity used by the likelihood must be finite.
         required=[(self.grb,['z','ep_keV','ep_err_keV','fluence','fluence_err']),
                   (self.sn,['calibrator_z','m_b_corr']),
-                  (self.hii,['calibrator_z','log_sigma','log_flux','err_log_sigma','err_log_flux'])]
+                  (self.hii,['calibrator_z','log_sigma','log_flux','err_log_sigma','err_log_flux']),
+                  (self.anchors,['log_sigma','log_flux','err_log_sigma','err_log_flux','mu','mu_err'])]
         for table,columns in required:
             if not np.isfinite(table[columns].to_numpy(dtype=float)).all():raise ValueError('Nonfinite input')
         if 'physical_id' in self.hii and not self.hii.physical_id.is_unique:
             raise ValueError('Repeated physical HII calibrator')
         if np.any(self.grb[['ep_keV','ep_err_keV','fluence','fluence_err','z']].to_numpy()<=0):
             raise ValueError('GRB energies, fluences, errors and redshifts must be positive')
-        if np.any(self.hii[['err_log_sigma','err_log_flux']].to_numpy()<0):raise ValueError('Negative HII uncertainty')
+        for table in [self.hii,self.anchors]:
+            if np.any(table[['err_log_sigma','err_log_flux']].to_numpy()<0):raise ValueError('Negative HII uncertainty')
+        if np.any(self.anchors.mu_err<0):raise ValueError('Negative anchor distance uncertainty')

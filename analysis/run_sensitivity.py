@@ -4,13 +4,12 @@ for key in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS"):
     os.environ[key] = "1"
 
 import argparse
-import json
 from dataclasses import replace
 from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from amati_pipeline.data import Dataset
+from amati_pipeline.data import Dataset, json_write, sha256
 from amati_pipeline.inference import run
 from amati_pipeline.model import MODES, RelativeCalibration
 from run_sample import ROOT
@@ -92,17 +91,20 @@ def match(case, pantheon_table, pantheon_covariance):
     sp["grb_id"] = grb.grb_id.iloc[g].to_numpy()
     hp = hii.iloc[h].rename(columns={"z": "calibrator_z"}).copy()
     hp["grb_id"] = grb.grb_id.iloc[j].to_numpy()
+    anchors = Dataset.load(ROOT / "inputs/reference").anchors
     folder = ROOT / "sensitivity_inputs" / case
-    manifest = json.loads((folder / "manifest.json").read_bytes())
-    if (manifest["tolerance"], manifest["omega_m"]) != (tolerance, omega_m):
-        raise ValueError(f"Unexpected matching settings for {case}")
-    for name, regenerated in (("sn", sp), ("hii", hp)):
-        archived = pd.read_csv(folder / f"{name}_index.csv", dtype={"grb_id": str, "calibrator_id": str})
-        for field in ("grb_id", "calibrator_id", "parent_row"):
-            np.testing.assert_array_equal(archived[field], regenerated[field])
-    np.testing.assert_array_equal(covariance[np.ix_(s, s)], np.load(folder / "sn_cov.npy"))
-    print(f"{case}: assignments and Pantheon+ covariance match the archived inputs.")
-
+    folder.mkdir(parents=True, exist_ok=True)
+    for name, frame in (("grb", grb), ("sn", sp), ("hii", hp), ("anchors", anchors)):
+        frame.to_csv(folder / f"{name}.csv", index=False)
+    np.save(folder / "sn_cov.npy", covariance[np.ix_(s, s)])
+    json_write(folder / "manifest.json", {
+        "algorithm": "milp", "version": matcher.__version__, "tolerance": tolerance,
+        "omega_m": omega_m, "criterion": "dd", "hii_direction": "hii_target",
+        "parent_hashes": {path.name: sha256(path)
+                          for path in (grb_path, hii_path, pantheon_table, pantheon_covariance)},
+        "files": {name: sha256(folder / name)
+                  for name in ("grb.csv", "sn.csv", "hii.csv", "anchors.csv", "sn_cov.npy")},
+    })
 
 
 def make_model(case, mode):
@@ -122,17 +124,14 @@ def make_model(case, mode):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("case", choices=CASES)
-    parser.add_argument("--verify-pairs", type=Path, nargs=2, metavar=("TABLE", "COVARIANCE"))
-    parser.add_argument("--output", type=Path, default=ROOT.parent / "work" / "sensitivity_runs")
+    parser.add_argument("--modes", nargs="+", choices=MODES, default=list(MODES))
+    parser.add_argument("--rebuild-pairs", type=Path, nargs=2, metavar=("TABLE", "COVARIANCE"))
     args = parser.parse_args()
-    if args.verify_pairs:
-        if args.case not in MATCH_SETTINGS:
-            parser.error("--verify-pairs is for window03, om025 and om035")
-        match(args.case, *args.verify_pairs)
-        raise SystemExit(0)
-    for mode in MODES:
+    if args.rebuild_pairs:
+        match(args.case, *args.rebuild_pairs)
+    for mode in args.modes:
         model = make_model(args.case, mode)
         seed = 2026111500 + 10 * CASES.index(args.case) + MODES.index(mode)
-        run(model, args.output / args.case / mode,
+        run(model, ROOT / "sensitivity_runs" / args.case / mode,
             dict(walkers=56, steps=9000, burn=2000, chunk=1500,
                  max_steps=30000, auto_extend=True, seed=seed))

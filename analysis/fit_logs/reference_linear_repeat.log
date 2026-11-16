@@ -1,0 +1,11 @@
+MAP reference_linear_repeat: lnL=-156.323733 {'A_SN': np.float64(42.14399), 'b0': np.float64(1.30388), 'A_HII': np.float64(11.17489), 'beta_HII': np.float64(1.72654), 'sigma_GRB': np.float64(1.156), 'sigma_HII': np.float64(0.46933), 'b1': np.float64(-0.07032)}
+reference_linear_repeat: 2000/16000 steps, 5.3s
+reference_linear_repeat: 4000/16000 steps, 10.7s
+reference_linear_repeat: 6000/16000 steps, 16.0s
+reference_linear_repeat: 8000/16000 steps, 21.4s
+reference_linear_repeat: 10000/16000 steps, 26.8s
+reference_linear_repeat: 12000/16000 steps, 32.1s
+reference_linear_repeat: 14000/16000 steps, 37.5s
+reference_linear_repeat: 16000/16000 steps, 42.9s
+reference_linear_repeat: 18000/18000 steps, 48.8s
+reference_linear_repeat: passed_50tau

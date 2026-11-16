@@ -1,0 +1,31 @@
+WARN `--no-project` was provided, but no project was found
+MAP constant: lnL=-171.076383 {'A_SN': np.float64(42.24391), 'b': np.float64(1.18194), 'A_HII': np.float64(16.84283), 'sigma_GRB': np.float64(1.07391), 'sigma_HII': np.float64(0.793)}
+constant: 1500/9000 steps, 4.2s
+constant: 3000/9000 steps, 8.3s
+constant: 4500/9000 steps, 12.4s
+constant: 6000/9000 steps, 16.5s
+constant: 7500/9000 steps, 20.6s
+constant: 9000/9000 steps, 24.7s
+constant: 10500/11000 steps, 29.0s
+constant: 11000/11000 steps, 30.4s
+constant: passed_50tau
+MAP linear: lnL=-170.994357 {'A_SN': np.float64(42.20469), 'b0': np.float64(1.21797), 'A_HII': np.float64(16.81947), 'sigma_GRB': np.float64(1.07435), 'sigma_HII': np.float64(0.79109), 'b1': np.float64(-0.01453)}
+linear: 1500/9000 steps, 4.1s
+linear: 3000/9000 steps, 8.3s
+linear: 4500/9000 steps, 12.5s
+linear: 6000/9000 steps, 16.7s
+linear: 7500/9000 steps, 20.9s
+linear: 9000/9000 steps, 25.1s
+linear: 10500/11000 steps, 29.5s
+linear: 11000/11000 steps, 30.9s
+linear: passed_50tau
+MAP log: lnL=-171.060002 {'A_SN': np.float64(42.22412), 'b0': np.float64(1.20405), 'A_HII': np.float64(16.83023), 'sigma_GRB': np.float64(1.07458), 'sigma_HII': np.float64(0.79195), 'b1': np.float64(-0.03901)}
+log: 1500/9000 steps, 4.2s
+log: 3000/9000 steps, 8.3s
+log: 4500/9000 steps, 12.5s
+log: 6000/9000 steps, 16.7s
+log: 7500/9000 steps, 20.9s
+log: 9000/9000 steps, 25.1s
+log: 10500/11000 steps, 29.4s
+log: 11000/11000 steps, 30.8s
+log: passed_50tau

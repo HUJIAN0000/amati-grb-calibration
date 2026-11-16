@@ -17,18 +17,11 @@ if __name__ == "__main__":
     parser.add_argument("sample", choices=(SAMPLE,))
     parser.add_argument("model", choices=MODES)
     parser.add_argument("--resume", action="store_true")
-    parser.add_argument("--output", type=Path, default=ROOT.parent / "work" / "runs")
-    parser.add_argument("--repeat", action="store_true", help="Use the independent linear-run configuration")
     args = parser.parse_args()
     data = Dataset.load(ROOT / "inputs" / args.sample)
     model = RelativeCalibration(data, args.model)
-    if args.repeat:
-        if args.model != "linear":
-            parser.error("--repeat is only defined for the linear model")
-        settings = dict(walkers=72, steps=16000, burn=3000, max_steps=50000, seed=2026111491,
-                        chunk=2000, auto_extend=True)
-        run(model, args.output / "reference_linear_repeat", settings, resume=args.resume)
-    else:
-        settings = dict(walkers=72, steps=12000, burn=3000, max_steps=50000,
-                        seed=2026111400 + MODES.index(args.model), chunk=2000, auto_extend=True)
-        run(model, args.output / args.sample / args.model, settings, resume=args.resume)
+    seed = 2026111400 + MODES.index(args.model)
+    run(model, ROOT / "runs" / args.sample / args.model,
+        dict(walkers=72, steps=12000, burn=3000, max_steps=50000, seed=seed,
+             chunk=2000, auto_extend=True), resume=args.resume)
+

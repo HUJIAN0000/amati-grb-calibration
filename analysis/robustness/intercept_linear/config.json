@@ -1,0 +1,58 @@
+{
+  "model": {
+    "evolution": "constant",
+    "log_base": 10,
+    "absolute_anchors_in_likelihood": false,
+    "zero_points": "A_SN(z) = A_SN + a1*z; A_HII(z) = A_HII + a1*z",
+    "amati_intercept_drift": "shared a1*z at 1 keV"
+  },
+  "sampling": {
+    "walkers": 72,
+    "steps": 14000,
+    "burn": 3000,
+    "max_steps": 50000,
+    "seed": 2026111603,
+    "chunk": 2000,
+    "auto_extend": true
+  },
+  "parameter_names": [
+    "A_SN",
+    "b",
+    "A_HII",
+    "beta_HII",
+    "sigma_GRB",
+    "sigma_HII",
+    "a1"
+  ],
+  "bounds": [
+    [
+      25.0,
+      60.0
+    ],
+    [
+      -3.0,
+      5.0
+    ],
+    [
+      -10.0,
+      40.0
+    ],
+    [
+      0.1,
+      10.0
+    ],
+    [
+      1e-05,
+      5.0
+    ],
+    [
+      1e-05,
+      5.0
+    ],
+    [
+      -2.0,
+      2.0
+    ]
+  ],
+  "input_manifest_sha256": "68a96db437b1af4cb46bfe05c6a06850d64070f936c49aa42ba75711ff7f10be"
+}

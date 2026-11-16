@@ -1,0 +1,12 @@
+MAP log: lnL=-156.944973 {'A_SN': np.float64(42.15119), 'b0': np.float64(1.33429), 'A_HII': np.float64(11.2545), 'beta_HII': np.float64(1.77199), 'sigma_GRB': np.float64(1.16585), 'sigma_HII': np.float64(0.46721), 'b1': np.float64(-0.15829)}
+log: 1500/9000 steps, 4.0s
+log: 3000/9000 steps, 7.9s
+log: 4500/9000 steps, 11.9s
+log: 6000/9000 steps, 15.8s
+log: 7500/9000 steps, 19.8s
+log: 9000/9000 steps, 23.8s
+log: 10500/11000 steps, 28.0s
+log: 11000/11000 steps, 29.3s
+log: 12500/13000 steps, 33.5s
+log: 13000/13000 steps, 34.9s
+log: passed_50tau

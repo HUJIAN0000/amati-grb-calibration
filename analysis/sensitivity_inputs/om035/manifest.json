@@ -1,13 +1,21 @@
 {
   "algorithm": "milp",
   "version": "1.4.3",
-  "criterion": "dd",
   "tolerance": 0.05,
   "omega_m": 0.35,
+  "criterion": "dd",
   "hii_direction": "hii_target",
-  "indexes": {
-    "sn_index.csv": "b453e22ebcd8c19c0731a2ae8e52dc612512c768d25436775fa88df272348a85",
-    "hii_index.csv": "991b7c60553bffb87d6340792e23c962712eff1371d4624c0380813d059dd427"
+  "parent_hashes": {
+    "a118_full.csv": "4ffc8c20d2d9720bbcea9557cc0393162232b3598a26e1f8956e046d36b9186c",
+    "hii_full_190.csv": "cdd6979b6fda1f8858a0848eb0279c93fd01034b0248d3998bb12e8424c373d8",
+    "Pantheon+SH0ES.dat": "1cb0fc379ef066afdc2ffd1857681cc478024570d8a3eba284fb645775198cf8",
+    "Pantheon+SH0ES_STAT+SYS.cov": "abf806d966485e64afdb359c87bffc0ecc00d05eff0a31ced66f247385df0fdc"
   },
-  "archived_manifest_sha256": "aa648e57d37ef3b85d35267f132267275318abe2e17541251e94285838656597"
+  "files": {
+    "grb.csv": "4ffc8c20d2d9720bbcea9557cc0393162232b3598a26e1f8956e046d36b9186c",
+    "sn.csv": "8728e631b491e90e08b1c6abd09f99046291c3f4391efc3825e5916ba92e26bf",
+    "hii.csv": "c4aed5994d17fecb69dd658cdcbcdbaffc43e73e7e06a9acb57134d8789c3b13",
+    "anchors.csv": "87546b9ee10a60d0629794a62586f00fd2b59b2eee8f0937f7c8ea6ee8515ce0",
+    "sn_cov.npy": "5fe69be06b7621d86e8d5eb16fd50a8345765313996d4c9bf82e754e430ac8aa"
+  }
 }
